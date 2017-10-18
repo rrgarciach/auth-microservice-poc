@@ -1,7 +1,7 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
-const AUTH_ERROR = { message: 'Invalid email or password.' };
+const AUTH_ERROR = { message: 'Incorrect credetials.' };
 
 const localPassport = {
     localAuthenticate,
@@ -26,7 +26,7 @@ function localAuthenticate(userService, username, password, done) {
             });
         })
         .catch(err => {
-            console.log('ERROR!');
+            console.error('ERROR!', err);
             done(err)
         });
 }

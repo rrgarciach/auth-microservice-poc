@@ -50,7 +50,7 @@ function isAuthenticated() {
 // Returns a jwt token signed by the app secret
 function signToken(id, role) {
     return jwt.sign({_id: id, role: role}, CONFIG.SECRETS.SESSION, {
-        expiresIn: 60 * 60 * 5
+        expiresIn: 60 * CONFIG.SESSION_MINUTES_TIMEOUT
     });
 }
 

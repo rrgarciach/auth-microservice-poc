@@ -3,23 +3,24 @@ services:
   auth-service:
     container_name: auth-service
     build: .
-    command: npm start
+    command: npm run dev
     volumes:
       - .:/usr/app/
     ports:
       - "3001:3001"
     depends_on:
-      - redis
+      - redis-session
     environment:
+      NODE_ENV: development
       PORT: 3001
       HOST: localhost
-      NODE_ENV: development
+      SESSION_MINUTES_TIMEOUT: 15
       REDIS_PORT: 6379
-      REDIS_HOST: redis
+      REDIS_HOST: redis-session
     external_links:
-      - redis
+      - redis-session
     network_mode: bridge
-  redis:
-    container_name: redis
+  redis-session:
+    container_name: redis-session
     image: redis:3.2.10-alpine
     network_mode: bridge
