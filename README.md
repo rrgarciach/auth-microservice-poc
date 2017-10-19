@@ -15,23 +15,21 @@ Authentication Microservice P.O.C. with Node and Redis
 
 - Install Node.js on system.
 - Install Docker on system.
+- Install Redis on system (only if running service without Docker)
 
 ### Installing
 
 #### Running with Docker (recommended)
 
 - Clone this repo on local machine and navigate into directory.
-- Connect to VPN.
-- Build and run application: ```docker-compose -f docker-compose-dev.yml up```
+- Run microservice application: ```docker-compose up```
 
 #### Running manually 
 
 - Clone this repo on local machine and navigate into directory.
 - Install NPM dependencies: ```npm install```
-- Create a plain text file `local.env` based on `local.env.sample` file.
-- Connect to VPN.
-- Run local service: ```npm run dev```
-- API will be served on localhost and port set on `local.env` (if not, por 3000 will be used as default).
+- Run microservice locally: ```npm run dev```
+- API will be served on localhost and port 3001 as default.
 
 ## Running the tests
 
