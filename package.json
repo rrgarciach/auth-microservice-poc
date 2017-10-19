@@ -1,7 +1,7 @@
 {
   "name": "auth-service-poc",
-  "version": "0.0.1",
-  "description": "Authentication service P.O.C. with Redis",
+  "version": "0.1.0",
+  "description": "Authentication Microservice P.O.C. with Node and Redis",
   "repository": "https://github.com/rrgarciach/auth-service-poc",
   "main": "index.js",
   "scripts": {
