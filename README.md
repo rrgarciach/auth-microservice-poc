@@ -6,6 +6,7 @@ Authentication Microservice P.O.C. with Node and Redis
 
 - Implement unit test
 - Include API documentation
+- Deployment strategy
 
 ## Getting Started
 
@@ -31,9 +32,15 @@ Authentication Microservice P.O.C. with Node and Redis
 - Run local service: ```npm run dev```
 - API will be served on localhost and port set on `local.env` (if not, por 3000 will be used as default).
 
+## Running the tests
+
+### Unit tests
+
+Unit test will always run before running non-dev service, however tests can be run for development purposes with ```npm test``` command.
+
 ## Deployment
 
-TODO: Add additional notes about how to deploy this on a live system
+TODO
 
 ## Built With
 

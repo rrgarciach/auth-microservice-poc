@@ -5,7 +5,8 @@
   "repository": "https://github.com/rrgarciach/auth-service-poc",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node ./test.js",
+    "tdd": "node ./node_modules/nodemon/bin/nodemon.js --exec npm test",
     "start": "npm test && npm run serve",
     "serve": "node index.js",
     "dev": "node ./node_modules/nodemon/bin/nodemon.js --exec npm run serve"
@@ -30,5 +31,9 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "redis": "^2.8.0"
+  },
+  "devDependencies": {
+    "jasmine": "^2.8.0",
+    "nodemon": "^1.12.1"
   }
 }
