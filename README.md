@@ -4,9 +4,10 @@ Authentication Microservice P.O.C. with Node and Redis
 
 ## TODO
 
-- Implement unit test
-- Include API documentation
-- Deployment strategy
+- Implement third party Auth strategies.
+- Add unit test.
+- Include API documentation.
+- Deployment strategy.
 
 ## Getting Started
 
