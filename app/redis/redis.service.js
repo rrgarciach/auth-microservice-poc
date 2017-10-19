@@ -12,22 +12,26 @@ client.on('error', function (err) {
 });
 
 function setSession(token, user) {
-    client.set(token, JSON.stringify(user), (err, reply)=> {
+    client.set(token, user.username, (err, reply)=> {
         if (err) {
             console.error(err);
         } else if (CONFIG.ENV === 'development') {
             console.log(`Session ${token} stored.`, reply);
         }
     });
+}
+
+function getSession(token) {
     client.get(token, (err, reply)=> {
         if (err) {
             console.error(err);
         } else if (CONFIG.ENV === 'development') {
-            console.log('we got from redis: ', reply)
+            console.log('Current session: ', reply);
         }
     });
 }
 
 module.exports = {
     setSession,
+    getSession
 };

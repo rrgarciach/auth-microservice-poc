@@ -23,7 +23,8 @@ router.post('/', (req, res, next) => {
         res.cookie('token', token);
         res.json({token: token});
 
-        redisService.setSession(token, user);
+        redisService.setSession(token, token);
+        redisService.getSession(token);
 
     })(req, res, next);
 });

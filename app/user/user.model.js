@@ -5,7 +5,7 @@ const model = {
     username: 'foo',
     password: '97k1aJom1I+DE5rkqw2p5EUOkOEW8en/sXKLezyY7+b3NpyFnnIYvmPf7gvYshxX0sA7hC9JMWoCyNVIIcsO8A==',
     role: {
-        name: 'John Doe',
+        name: 'client',
     },
     salt: 'asdf1234',
 
@@ -52,7 +52,34 @@ const model = {
                 }
                 return callback(null, key.toString('base64'));
             });
-    }
+    },
+
+    makeSalt: function (byteSize, callback) {
+        const defaultByteSize = 16;
+
+        if (typeof arguments[0] === 'function') {
+            callback = arguments[0];
+            byteSize = defaultByteSize;
+        }
+        else if (typeof arguments[1] === 'function') {
+            callback = arguments[1];
+        }
+
+        if (!byteSize) {
+            byteSize = defaultByteSize;
+        }
+
+        if (!callback) {
+            return crypto.randomBytes(byteSize).toString('base64');
+        }
+
+        return crypto.randomBytes(byteSize, function (err, salt) {
+            if (err) {
+                callback(err);
+            }
+            return callback(null, salt.toString('base64'));
+        });
+    },
 
 };
 
