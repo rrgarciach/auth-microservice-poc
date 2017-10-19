@@ -8,7 +8,7 @@ const CONFIG = require('../config/environment');
 const MESSAGE_404 = 'It looks like you are not logged in, please try again.';
 
 const validateJwt = expressJwt({
-    secret: CONFIG.SECRETS.SESSION
+    secret: CONFIG.SESSION.SECRET
 });
 
 const authService = {
@@ -25,16 +25,13 @@ function isAuthenticated() {
             if (req.query && req.query.hasOwnProperty('access_token')) {
                 req.headers.authorization = 'Bearer ' + req.query.access_token;
                 // allow access_token to be passed through query parameter as well
-                validateJwt(req, res, next)
+                validateJwt(req, res, next);
             } else {
-                validateJwt(req, res, next)
+                validateJwt(req, res, next);
             }
         })
         // Attach user to request
         .use(function (req, res, next) {
-            if (err) {
-                return res.status(err.status).end();
-            }
             userService.getById(req.user._id)
                 .then(user => {
                     if (!user) {
@@ -49,8 +46,8 @@ function isAuthenticated() {
 
 // Returns a jwt token signed by the app secret
 function signToken(id, role) {
-    return jwt.sign({_id: id, role: role}, CONFIG.SECRETS.SESSION, {
-        expiresIn: 60 * CONFIG.SESSION_MINUTES_TIMEOUT
+    return jwt.sign({_id: id, role: role}, CONFIG.SESSION.SECRET, {
+        expiresIn: 60 * CONFIG.SESSION.MINUTES_TIMEOUT
     });
 }
 

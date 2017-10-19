@@ -2,7 +2,7 @@ const express = require('express');
 const passport = require('passport');
 
 const signToken = require('../auth.service').signToken;
-const redisService = require('../../redis/redis.service');
+const sessionService = require('../../session/session.service');
 
 const router = express.Router();
 
@@ -23,8 +23,7 @@ router.post('/', (req, res, next) => {
         res.cookie('token', token);
         res.json({token: token});
 
-        redisService.setSession(token, token);
-        redisService.getSession(token);
+        sessionService.setSession(token, {username: user.username});
 
     })(req, res, next);
 });

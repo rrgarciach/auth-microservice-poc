@@ -8,6 +8,15 @@ function getByUsername(username) {
     }
 }
 
+function getById(id) {
+    if (id === model._id) {
+        return Promise.resolve(model);
+    } else {
+        return Promise.resolve();
+    }
+}
+
 module.exports = {
     getByUsername,
+    getById
 };
