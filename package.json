@@ -5,10 +5,11 @@
   "repository": "https://github.com/rrgarciach/auth-service-poc",
   "main": "index.js",
   "scripts": {
-    "test": "node ./test.js",
+    "test": "node ./test/index.js",
     "tdd": "node ./node_modules/nodemon/bin/nodemon.js --exec npm test",
+    "coverage": "node ./node_modules/nyc/bin/nyc.js npm test",
     "start": "npm test && npm run serve",
-    "serve": "node index.js",
+    "serve": "node ./index.js",
     "dev": "node ./node_modules/nodemon/bin/nodemon.js --exec npm run serve"
   },
   "keywords": [
@@ -34,6 +35,7 @@
   },
   "devDependencies": {
     "jasmine": "^2.8.0",
-    "nodemon": "^1.12.1"
+    "nodemon": "^1.12.1",
+    "nyc": "^11.2.1"
   }
 }

@@ -5,5 +5,5 @@ process.env.NODE_ENV = 'test';
 process.env.NODE_ENV = 'test';
 
 const jasmine = new Jasmine();
-jasmine.loadConfigFile('./jasmine.json');
+jasmine.loadConfigFile('./test/jasmine.json');
 jasmine.execute();

@@ -1,0 +1,13 @@
+{
+  "exclude": [
+    "app/**/*.spec.js"
+  ],
+  "include": [
+    "app/**/*.js"
+  ],
+  "reporter": [
+    "lcov",
+    "text-summary"
+  ],
+  "report-dir": "./coverage"
+}
