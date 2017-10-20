@@ -8,8 +8,9 @@ const CONFIG = {
         MINUTES_TIMEOUT: process.env.SESSION_MINUTES_TIMEOUT || 15,
     },
     REDIS: {
-        PORT: process.env.REDIS_PORT || 6379,
         HOST: process.env.REDIS_HOST || '127.0.0.1',
+        PORT: process.env.REDIS_PORT || 6379,
+        PASSWORD: process.env.REDIS_PASSWORD || '',
     },
 };
 

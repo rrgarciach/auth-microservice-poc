@@ -7,22 +7,25 @@ services:
     volumes:
       - .:/usr/app/
     ports:
-      - "3001:3001"
+      - "3000:3000"
     depends_on:
       - redis-session
     environment:
       NODE_ENV: development
-      PORT: 3001
+      PORT: 3000
       HOST: localhost
       SESSION_SECRET: auth-secret
       SESSION_MINUTES_TIMEOUT: 15
       REDIS_PORT: 6379
       REDIS_HOST: redis-session
-      REDIS_PASSWORD: asdf1234
+      REDIS_PASSWORD: secret2
     external_links:
       - redis-session
     network_mode: bridge
   redis-session:
     container_name: redis-session
     image: redis:3.2.10-alpine
+    command: >
+      --requirepass secret2
     network_mode: bridge
+
