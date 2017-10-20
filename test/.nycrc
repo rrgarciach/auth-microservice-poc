@@ -1,9 +1,9 @@
 {
   "exclude": [
-    "app/**/*.spec.js"
+    "src/**/*.spec.js"
   ],
   "include": [
-    "app/**/*.js"
+    "src/**/*.js"
   ],
   "reporter": [
     "lcov",

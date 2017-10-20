@@ -18,6 +18,7 @@ services:
       SESSION_MINUTES_TIMEOUT: 15
       REDIS_PORT: 6379
       REDIS_HOST: redis-session
+      REDIS_PASSWORD: asdf1234
     external_links:
       - redis-session
     network_mode: bridge

@@ -1,6 +1,6 @@
 {
   "spec_files": [
-    "app/**/**.spec.js"
+    "src/**/**.spec.js"
   ],
   "helpers": [
     "test/helpers/**/**.js"
