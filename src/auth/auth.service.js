@@ -42,7 +42,7 @@ function isAuthenticated() {
                 return res.status(401).send('Invalid token.');
             }
         })
-        .use(swapToken)
+        .use(refreshToken)
         // Attach user to request
         .use(function (req, res, next) {
             userService.getById(req.user._id)
@@ -64,7 +64,7 @@ function signToken(id, role) {
     });
 }
 
-function swapToken(req, res, next) {
+function refreshToken(req, res, next) {
     const token = req.headers.authorization.replace('Bearer ', '');
 
     _isTokenRegistered(token, isRegistered => {
@@ -121,6 +121,5 @@ function setTokenCookie(req, res) {
 module.exports = {
     isAuthenticated,
     signToken,
-    swapToken,
     setTokenCookie
 };
