@@ -3,7 +3,7 @@ const crypto = require('crypto');
 const model = {
     _id: 'foo123',
     username: 'foo',
-    password: '97k1aJom1I+DE5rkqw2p5EUOkOEW8en/sXKLezyY7+b3NpyFnnIYvmPf7gvYshxX0sA7hC9JMWoCyNVIIcsO8A==',
+    password: '97k1aJom1I+DE5rkqw2p5EUOkOEW8en/sXKLezyY7+b3NpyFnnIYvmPf7gvYshxX0sA7hC9JMWoCyNVIIcsO8A==', // "bar"
     role: {
         name: 'client',
     },

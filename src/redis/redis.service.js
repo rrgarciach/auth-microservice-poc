@@ -1,21 +1,27 @@
 const redis = require('redis');
 
-const CONFIG = require('../config/environment');
+function createClient(config) {
 
-const client = redis.createClient({
-    port: CONFIG.REDIS.PORT,
-    host: CONFIG.REDIS.HOST
-});
-client.auth(CONFIG.REDIS.PASSWORD);
+    const client = redis.createClient({
+        port: config.port,
+        host: config.host,
+        db: config.db
+    });
 
-client.on('connect', function() {
-    console.info(`Connected to Redis at ${CONFIG.REDIS.HOST}:${CONFIG.REDIS.PORT}.`);
-});
+    client.auth(config.password);
 
-client.on('error', function (err) {
-    console.error('Redis Error: ', err);
-});
+    client.on('connect', function() {
+        console.info(`Connected to Redis at ${config.host}:${config.port} for database ${config.db}`);
+    });
+
+    client.on('error', function (err) {
+        console.error('Redis Error: ', err);
+    });
+
+    return client;
+
+}
 
 module.exports = {
-    client
+    createClient
 };

@@ -23,9 +23,13 @@ router.post('/', (req, res, next) => {
         res.cookie('token', token);
         res.json({token: token});
 
-        sessionService.setSession(token, {username: user.username});
+        sessionService.setSession(token, {user}, sessionId => sessionId);
 
     })(req, res, next);
+});
+
+router.get('/check', require('../auth.service').isAuthenticated(), (req, res) => {
+    res.status(201).send('');
 });
 
 module.exports = router;

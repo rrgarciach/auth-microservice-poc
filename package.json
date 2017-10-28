@@ -31,7 +31,8 @@
     "morgan": "^1.9.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "redis": "^2.8.0"
+    "redis": "^2.8.0",
+    "uuid-random": "^1.0.6"
   },
   "devDependencies": {
     "jasmine": "^2.8.0",

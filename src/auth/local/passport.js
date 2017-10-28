@@ -1,7 +1,7 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
-const AUTH_ERROR = { message: 'Incorrect credetials.' };
+const AUTH_ERROR = { message: 'Incorrect credentials.' };
 
 const localPassport = {
     localAuthenticate,
